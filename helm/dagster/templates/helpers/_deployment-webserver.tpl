@@ -131,7 +131,7 @@ spec:
         {{- end }}
         {{- if $_.Values.dagsterWebserver.extraContainers }}
         {{- range $container := $_.Values.dagsterWebserver.extraContainers }}
-        - {{- $container | toYaml | nindent 10 }}
+        - {{ toYaml $container | nindent 10 | trim }}
         {{- end }}
         {{- end }}
       {{- with $_.Values.dagsterWebserver.nodeSelector }}
