@@ -115,6 +115,15 @@ dagsterWebserver:
   #   - name: secret
   envSecrets: []
 
+  # Additional containers that should run as sidecars to the webserver. See:
+  # https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers
+  #
+  # Example:
+  # extraContainers:
+  #   - name: my-sidecar
+  #     image: busybox
+  extraContainers: []
+
   # Additional labels that should be included on the deployment. See:
   # https://kubernetes.io/docs/concepts/overview/working-with-objects/labels
   #
@@ -1175,6 +1184,15 @@ dagsterDaemon:
   # envSecrets:
   #   - name: secret
   envSecrets: []
+
+  # Additional containers that should run as sidecars to the daemon. See:
+  # https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers
+  #
+  # Example:
+  # extraContainers:
+  #   - name: my-sidecar
+  #     image: busybox
+  extraContainers: []
 
   # Additional labels that should be included on the deployment. See:
   # https://kubernetes.io/docs/concepts/overview/working-with-objects/labels

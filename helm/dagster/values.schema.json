@@ -262,6 +262,12 @@
             "properties": {},
             "$ref": "https://kubernetesjsonschema.dev/v1.18.0/_definitions.json#/definitions/io.k8s.api.core.v1.SecretEnvSource"
         },
+        "Container": {
+            "title": "Container",
+            "type": "object",
+            "properties": {},
+            "$ref": "https://kubernetesjsonschema.dev/v1.18.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
+        },
         "NodeSelector": {
             "title": "NodeSelector",
             "type": "object",
@@ -397,6 +403,13 @@
                         "$ref": "#/definitions/SecretEnvSource"
                     }
                 },
+                "extraContainers": {
+                    "title": "Extracontainers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Container"
+                    }
+                },
                 "deploymentLabels": {
                     "title": "Deploymentlabels",
                     "type": "object",
@@ -527,6 +540,7 @@
                 "env",
                 "envConfigMaps",
                 "envSecrets",
+                "extraContainers",
                 "deploymentLabels",
                 "labels",
                 "nodeSelector",
@@ -629,6 +643,13 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/SecretEnvSource"
+                    }
+                },
+                "extraContainers": {
+                    "title": "Extracontainers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Container"
                     }
                 },
                 "annotations": {
@@ -2725,6 +2746,13 @@
                         "$ref": "#/definitions/SecretEnvSource"
                     }
                 },
+                "extraContainers": {
+                    "title": "Extracontainers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Container"
+                    }
+                },
                 "deploymentLabels": {
                     "title": "Deploymentlabels",
                     "type": "object",
@@ -2831,6 +2859,7 @@
                 "env",
                 "envConfigMaps",
                 "envSecrets",
+                "extraContainers",
                 "deploymentLabels",
                 "labels",
                 "nodeSelector",

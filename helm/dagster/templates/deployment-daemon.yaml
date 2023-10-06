@@ -129,6 +129,11 @@ spec:
           startupProbe:
             {{- toYaml $startupProbe | nindent 12 }}
           {{- end }}
+        {{- if .Values.dagsterDaemon.extraContainers }}
+        {{- range $container := .Values.dagsterDaemon.extraContainers }}
+        - {{- $container | toYaml | nindent 8 }}
+        {{- end }}
+        {{- end }}
       nodeSelector:
         {{- toYaml .Values.dagsterDaemon.nodeSelector | nindent 8 }}
       volumes:

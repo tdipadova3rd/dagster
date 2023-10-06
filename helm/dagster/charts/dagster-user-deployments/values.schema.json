@@ -118,6 +118,12 @@
             "properties": {},
             "$ref": "https://kubernetesjsonschema.dev/v1.18.0/_definitions.json#/definitions/io.k8s.api.core.v1.SecretEnvSource"
         },
+        "Container": {
+            "title": "Container",
+            "type": "object",
+            "properties": {},
+            "$ref": "https://kubernetesjsonschema.dev/v1.18.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
+        },
         "Annotations": {
             "title": "Annotations",
             "type": "object",
@@ -259,6 +265,13 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/SecretEnvSource"
+                    }
+                },
+                "extraContainers": {
+                    "title": "Extracontainers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Container"
                     }
                 },
                 "annotations": {

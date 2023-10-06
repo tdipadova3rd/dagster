@@ -24,6 +24,7 @@ class UserDeployment(BaseModel):
     env: Optional[Union[Dict[str, str], List[kubernetes.EnvVar]]]
     envConfigMaps: Optional[List[kubernetes.ConfigMapEnvSource]]
     envSecrets: Optional[List[kubernetes.SecretEnvSource]]
+    extraContainers: Optional[List[kubernetes.Container]]
     annotations: Optional[kubernetes.Annotations]
     nodeSelector: Optional[kubernetes.NodeSelector]
     affinity: Optional[kubernetes.Affinity]

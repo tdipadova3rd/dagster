@@ -29,6 +29,7 @@ class Webserver(BaseModel):
     env: Union[Dict[str, str], List[kubernetes.EnvVar]]
     envConfigMaps: List[kubernetes.ConfigMapEnvSource]
     envSecrets: List[kubernetes.SecretEnvSource]
+    extraContainers: List[kubernetes.Container]
     deploymentLabels: Dict[str, str]
     labels: Dict[str, str]
     nodeSelector: kubernetes.NodeSelector

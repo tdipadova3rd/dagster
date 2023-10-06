@@ -105,6 +105,15 @@ deployments:
     #   - name: secret
     envSecrets: []
 
+    # Additional containers that should run as sidecars to the user deployment. See:
+    # https://kubernetes.io/docs/concepts/workloads/pods/#how-pods-manage-multiple-containers
+    #
+    # Example:
+    # extraContainers:
+    #   - name: my-sidecar
+    #     image: busybox
+    extraContainers: []
+
     annotations: {}
     nodeSelector: {}
     affinity: {}
