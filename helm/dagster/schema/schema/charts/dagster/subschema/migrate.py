@@ -8,4 +8,4 @@ from ...utils import kubernetes
 class Migrate(BaseModel):
     enabled: bool
     customMigrateCommand: Optional[List[str]]
-    extraContainers: List[kubernetes.Container]
+    extraContainers: Optional[List[kubernetes.Container]]
