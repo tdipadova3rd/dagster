@@ -63,6 +63,11 @@ spec:
             {{- toYaml $.Values.dagsterDaemon.securityContext | nindent 12 }}
         {{- end }}
         {{- end }}
+        {{- if .Values.dagsterDaemon.extraInitContainers }}
+        {{- range $container := .Values.dagsterDaemon.extraInitContainers }}
+        - {{ toYaml $container | nindent 10 | trim }}
+        {{- end }}
+        {{- end }}
       containers:
         - name: {{ $.Chart.Name }}
           securityContext:

@@ -268,6 +268,12 @@
             "properties": {},
             "$ref": "https://kubernetesjsonschema.dev/v1.18.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
         },
+        "InitContainer": {
+            "title": "InitContainer",
+            "type": "object",
+            "properties": {},
+            "$ref": "https://kubernetesjsonschema.dev/v1.18.0/_definitions.json#/definitions/io.k8s.api.core.v1.Container"
+        },
         "NodeSelector": {
             "title": "NodeSelector",
             "type": "object",
@@ -410,6 +416,13 @@
                         "$ref": "#/definitions/Container"
                     }
                 },
+                "extraInitContainers": {
+                    "title": "Extrainitcontainers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InitContainer"
+                    }
+                },
                 "deploymentLabels": {
                     "title": "Deploymentlabels",
                     "type": "object",
@@ -541,6 +554,7 @@
                 "envConfigMaps",
                 "envSecrets",
                 "extraContainers",
+                "extraInitContainers",
                 "deploymentLabels",
                 "labels",
                 "nodeSelector",
@@ -809,6 +823,10 @@
                 },
                 "postgresqlScheme": {
                     "title": "Postgresqlscheme",
+                    "type": "string"
+                },
+                "pgIsReadyCommandOverride": {
+                    "title": "Pgisreadycommandoverride",
                     "type": "string"
                 },
                 "service": {
@@ -2746,6 +2764,13 @@
                         "$ref": "#/definitions/Container"
                     }
                 },
+                "extraInitContainers": {
+                    "title": "Extrainitcontainers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InitContainer"
+                    }
+                },
                 "deploymentLabels": {
                     "title": "Deploymentlabels",
                     "type": "object",
@@ -2853,6 +2878,7 @@
                 "envConfigMaps",
                 "envSecrets",
                 "extraContainers",
+                "extraInitContainers",
                 "deploymentLabels",
                 "labels",
                 "nodeSelector",
@@ -2891,10 +2917,25 @@
                 "enabled": {
                     "title": "Enabled",
                     "type": "boolean"
+                },
+                "customMigrateCommand": {
+                    "title": "Custommigratecommand",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "extraContainers": {
+                    "title": "Extracontainers",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Container"
+                    }
                 }
             },
             "required": [
-                "enabled"
+                "enabled",
+                "extraContainers"
             ]
         },
         "Telemetry": {

@@ -30,6 +30,7 @@ class Webserver(BaseModel):
     envConfigMaps: List[kubernetes.ConfigMapEnvSource]
     envSecrets: List[kubernetes.SecretEnvSource]
     extraContainers: List[kubernetes.Container]
+    extraInitContainers: List[kubernetes.InitContainer]
     deploymentLabels: Dict[str, str]
     labels: Dict[str, str]
     nodeSelector: kubernetes.NodeSelector

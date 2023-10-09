@@ -18,4 +18,5 @@ class PostgreSQL(BaseModel):
     postgresqlDatabase: str
     postgresqlParams: dict
     postgresqlScheme: Optional[str]
+    pgIsReadyCommandOverride: Optional[str]
     service: Service
