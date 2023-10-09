@@ -174,9 +174,9 @@ spec:
           {{- end }}
         {{- end }}
       {{- if $deployment.extraContainers }}
-        {{- range $container := $deployment.extraContainers }}
-        - {{- $container | toYaml | nindent 12 }}
-        {{- end }}
+      {{- range $container := $deployment.extraContainers }}
+      - {{ toYaml $container | nindent 10 | trim }}
+      {{- end }}
       {{- end }}
       nodeSelector: {{ $deployment.nodeSelector | toYaml | nindent 8 }}
       affinity: {{ $deployment.affinity | toYaml | nindent 8 }}
