@@ -70,6 +70,11 @@ spec:
           {{- end }}
         {{- end }}
         {{- end }}
+        {{- if $_.Values.dagsterWebserver.extraInitContainers }}
+        {{- range $container := $_.Values.dagsterWebserver.extraInitContainers }}
+        - {{ toYaml $container | nindent 10 | trim }}
+        {{- end }}
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -137,6 +142,11 @@ spec:
           {{- $startupProbe := omit $_.Values.dagsterWebserver.startupProbe "enabled" }}
           startupProbe:
             {{- toYaml $startupProbe | nindent 12 }}
+        {{- end }}
+        {{- if $_.Values.dagsterWebserver.extraContainers }}
+        {{- range $container := $_.Values.dagsterWebserver.extraContainers }}
+        - {{ toYaml $container | nindent 10 | trim }}
+        {{- end }}
         {{- end }}
       {{- with $_.Values.dagsterWebserver.nodeSelector }}
       nodeSelector:
